@@ -9,6 +9,7 @@
   "author": "umesh nakod",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.5.0",
     "body-Parser": "*",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
@@ -16,6 +17,8 @@
     "mongojs": "^2.4.0",
     "mongoose": "^4.11.5",
     "mongoskin": "^2.1.0",
-    "nodemon": "*"
+    "mysql": "^2.14.1",
+    "nodemon": "*",
+    "tedious": "^2.0.0"
   }
 }

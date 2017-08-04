@@ -13,7 +13,7 @@
 
     // calling function
     router.get('/getJSON', logController.getJSON);
-
+    router.post('/getDataFromSql',logController.getDataFromSql);
 
 
 

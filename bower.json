@@ -1,0 +1,22 @@
+{
+  "name": "bower",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "umeshnakod"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/umeshnakod/graphZone",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "angularjs#^1.6.5",
+    "angular-ui-router": "^1.0.5"
+  }
+}
