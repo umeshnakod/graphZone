@@ -2,7 +2,7 @@
 var app = angular.module('app')
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise("/?page=a");
+      $urlRouterProvider.otherwise("/student");
       $stateProvider
         .state('root', {
           abstract: true,
@@ -18,14 +18,7 @@ var app = angular.module('app')
             }
           },
         })
-        .state('dashboard', {
-          parent: 'root',
-          url: '/',
- 		  template: '',
-          controller: function($state) {
-             $state.go('root.student');
-          }
-        })
+
         .state('root.student', {
           url: '/student',
           templateUrl: '/MENU/menu.html'

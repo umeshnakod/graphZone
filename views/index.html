@@ -6,10 +6,16 @@
 	<title>Title</title>
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
 	 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	 <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
 	 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-	 	<script src="module.js"></script>
+	 <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
+	 <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"> -->
+
+	 <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
+
+	 <script src="module.js"></script>
 	 <script src="route.js"></script>
 
 </head>
@@ -30,3 +36,13 @@
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </html>
+
+<script>
+
+$(document).on("click", "#menu-toggle", function(e) {
+  // alert('aaaaaaaaa')
+ e.preventDefault();
+$("#wrapper").toggleClass("active");
+});
+    
+</script>
