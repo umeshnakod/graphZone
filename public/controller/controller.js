@@ -4,7 +4,6 @@ var mongojs = require('mongojs');
 var db = mongojs('SAMS-Phase3',['employee']);
 var sql = require('mysql');
 
-
 module.exports = {
 	getJSON:function (req,res) {
 		var sends = null;
@@ -16,9 +15,18 @@ module.exports = {
 	},
 
 	getDataFromSql:function (req,res) {
+		// {host: 'localhost',
+  //   user     : 'mylocal',
+  //   password : '123',
+  //   database : 'sakila'}
 
-		console.log(req.body)
-	var con = sql.createConnection(req.body);
+	 console.log('-----------',req.body)
+	var con = sql.createConnection({
+			host: 'localhost',
+		    user     : 'mylocal',
+		    password : '123',
+		    database : 'sakila'
+		});
 
 		var response = null;
 		con.connect(function(err) {
@@ -38,9 +46,6 @@ module.exports = {
 		  });
 
 		});	
-
-		console.log(response)
-
 
 	}
 }

@@ -158,4 +158,11 @@ function drawStacked() {
     }
 
 
+    $scope.openModal = function ($uibModal ) {
+    	    modalInstance = $uibModal.open({
+      template: '<div>Modal Content - <a ng-click="close()">Close</a></div>'
+    });
+    }
+
+
 })

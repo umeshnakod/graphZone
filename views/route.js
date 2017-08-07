@@ -31,6 +31,13 @@ angular.module('app')
   
         })
 
+        .state('setupConenction', {
+          url: '/connection',
+          templateUrl: '/connection/view.html',
+          controller:'connectionController'
+  
+        })
+
         .state('root.menu', {
           url: '/menu',
           templateUrl: '/menu/menu.html',
@@ -38,9 +45,11 @@ angular.module('app')
           resolve:{
             'state':function ($rootScope,$state,$sessionStorage ) {
             if (!$sessionStorage['token']) {
-              $state.go('login')
+              $state.go('login');
             }else{
-              console.log('success')
+              if (!$sessionStorage['connection']) {
+                $state.go('setupConenction');
+              }
             }
           }
           }
