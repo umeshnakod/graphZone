@@ -1,8 +1,8 @@
 'use strict';
-var app = angular.module('app')
+angular.module('app')
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise("/student");
+      $urlRouterProvider.otherwise("/login");
       $stateProvider
         .state('root', {
           abstract: true,
@@ -19,8 +19,15 @@ var app = angular.module('app')
           },
         })
 
-        .state('root.student', {
-          url: '/student',
+        .state('login', {
+          url: '/login',
+          templateUrl: '/login/login.html',
+          controller:'loginController'
+  
+        })
+
+        .state('root.menu', {
+          url: '/menu',
           templateUrl: '/MENU/menu.html'
    
         })
@@ -37,4 +44,16 @@ var app = angular.module('app')
           }
         });
     }
-  ]);
+  ])
+
+
+   .run(function($rootScope, $state, $stateParams,$sessionStorage) {
+  $rootScope.$on('$stateChangeStart', function(event, transition) {
+
+      // if (!$sessionStorage['token']) {
+      //   $state.go('login')
+      // }
+    // console.log($sessionStorage['token'])
+
+})
+  })
