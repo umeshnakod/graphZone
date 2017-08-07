@@ -18,6 +18,7 @@
     "mongoose": "^4.11.5",
     "mongoskin": "^2.1.0",
     "mysql": "^2.14.1",
+    "n3-charts": "^2.0.28",
     "nodemon": "*",
     "tedious": "^2.0.0"
   }

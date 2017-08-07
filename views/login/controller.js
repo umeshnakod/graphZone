@@ -1,9 +1,10 @@
-app.controller('loginController',function ($scope,$state) {
+app.controller('loginController',function ($scope,$state,$sessionStorage) {
 
 
 	$scope.login = function ($scope) {
 		// body...
-		$state.go('root.menu')
+        $sessionStorage['token'] = 'umesh'
+		$state.go('root.menu');
 	}
 
 	$scope.showPassword = function () {

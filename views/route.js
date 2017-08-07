@@ -8,7 +8,12 @@ angular.module('app')
           abstract: true,
           views: {
           	'header@': {
-              templateUrl: '/header/header.html'
+              templateUrl: '/header/header.html',
+              controller:'sidebarController'
+            },
+            'sidebar@':{
+              templateUrl:'/sidebar/sidebar.html',
+              controller:'sidebarController'
             },
             'footer@': {
               templateUrl:'/header/footer.html'
@@ -28,7 +33,17 @@ angular.module('app')
 
         .state('root.menu', {
           url: '/menu',
-          templateUrl: '/MENU/menu.html'
+          templateUrl: '/menu/menu.html',
+          controller:'menuController',
+          resolve:{
+            'state':function ($rootScope,$state,$sessionStorage ) {
+            if (!$sessionStorage['token']) {
+              $state.go('login')
+            }else{
+              console.log('success')
+            }
+          }
+          }
    
         })
         .state('root.profile', {
@@ -50,10 +65,10 @@ angular.module('app')
    .run(function($rootScope, $state, $stateParams,$sessionStorage) {
   $rootScope.$on('$stateChangeStart', function(event, transition) {
 
-      // if (!$sessionStorage['token']) {
-      //   $state.go('login')
-      // }
+
     // console.log($sessionStorage['token'])
 
 })
+
   })
+

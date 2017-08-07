@@ -1,36 +1,5 @@
-<div id="wrapper">
+<div id="wrapper1">
     
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <nav id="spy">
-            <ul class="sidebar-nav nav">
-                <li class="sidebar-brand">
-                    <a href="#home"><span class="fa fa-home solo">Home</span></a>
-                </li>
-                <li>
-                    <a href="#anch1">
-                        <span class="fa fa-anchor solo">Anchor 1</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#anch2">
-                        <span class="fa fa-anchor solo">Anchor 2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#anch3">
-                        <span class="fa fa-anchor solo">Anchor 3</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#anch4">
-                        <span class="fa fa-anchor solo">Anchor 4</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
 
     <!-- Page content -->
     <div id="page-content-wrapper">
@@ -40,164 +9,53 @@
                     <div class="col-md-6">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                    Panel 1
-   <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title">{{list1.title}}</div>
-
-
+                                    Line Chart
 
                             </div>
                             <div class="panel-body">
-                                
-   <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
-  <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable ng-hide="!list2.title">{{list2.title}}</div>
-</div>
-                            </div>
+                                    
+                                        <linechart data="data" options="options"></linechart>
+
+
+                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">                    
                         <div class="panel panel-success">
                             <div class="panel-heading">
-                                    Panel 1
+                                    google line chart
                             </div>
                             <div class="panel-body">
-                                content body
+                               <div id="chart_div"></div>
                             </div>
                         </div>
                     </div>
+
+                 <div class="col-md-6">                    
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                    google pie chart
+                            </div>
+                            <div class="panel-body">
+                               
+        <div id="piechart" style="width: 500px; height: 200px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                                     <div class="col-md-6">                    
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                    google bar chart
+                            </div>
+                            <div class="panel-body">
+                               
+                            <div id="barChart_div"></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<style type="text/css">
-
-#wrapper {
-  padding-left: 250px;
-  transition: all 0.4s ease 0s;
-}
-
-#sidebar-wrapper {
-  margin-left: -250px;
-  top: 51px;
-  left: 250px;
-  width: 250px;
-  background: #e2e1e1;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s;
-}
-
-#wrapper.active {
-  padding-left: 0;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 0;
-}
-
-#page-content-wrapper {
-  width: 100%;
-  padding-top: 70px;
-  transition: all 0.4s ease 0s;
-}
-
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  line-height: 40px;
-  text-indent: 20px;
-}
-
-.sidebar-nav li a {
-  color: #999999;
-  display: block;
-  text-decoration: none;
-  padding-left: 60px;
-}
-
-.sidebar-nav li a span:before {
-  position: absolute;
-  left: 0;
-  color: #41484c;
-  text-align: center;
-  width: 20px;
-  line-height: 18px;
-}
-
-.sidebar-nav li a:hover,
-.sidebar-nav li.active {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-  text-decoration: none;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-  color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
-}
-
-#menu-toggle {
-    text-decoration: none;
-    float: left;
-    color: #fff;
-    padding-right: 15px;
-}
-
-@media (max-width:767px) {
-
-#wrapper {
-  padding-left: 0;
-}
-
-#sidebar-wrapper {
-  left: 0;
-}
-
-#wrapper.active {
-  position: relative;
-  left: 250px;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 250px;
-  width: 250px;
-  transition: all 0.4s ease 0s;
-}
-
-#menu-toggle {
-  display: inline-block;
-}
-
-}
-
-
-</style>
-
-
-
