@@ -12,13 +12,11 @@ app.controller('connectionController',function ($scope,$state,$sessionStorage,$h
 
 	$scope.createGraph = function (data) {
 		console.log(data)
-		// $sessionStorage['connection'] = true;
-		// $state.go('root.menu')
+		$sessionStorage['connection'] = true;
+		$state.go('root.menu');
 
 
-		$http.post('/getDataFromSql',data,function (res) {
-			console.log('reeeeee',res)
-		})
+	
 	}
  
 })

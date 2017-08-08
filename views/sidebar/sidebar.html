@@ -1,36 +1,24 @@
 <div id="wrapper">
-    
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
+    
+    <input type="text" class='form-control' ng-model="test" placeholder="Filter">
+
         <nav id="spy">
             <ul class="sidebar-nav nav">
-                <li class="sidebar-brand">
-                    <a href="#home"><span class="fa fa-home solo">Home</span></a>
-                </li>
-                <li>
-                    <a href="#anch1">
-                        <span class="fa fa-anchor solo">Anchor 1</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#anch2">
-                        <span class="fa fa-anchor solo">Anchor 2</span>
-                    </a>
-                </li>
-                <li>
-                  <a href="#anch3">
-                        <span class="fa fa-anchor solo">Anchor 3</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#anch4">
-                        <span class="fa fa-anchor solo">Anchor 4</span>
-                    </a>
+                <li class="sidebar-brand" ng-repeat="values in sidebarValues | filter:test">
+              <label ng-repeat="(key,value) in values">
+                <input type="checkbox" id="" value="{{value}}" ng-model="IsChecked" ng-change="checkedItems(IsChecked,value)">
+                <span>{{value}}</span>
+              
+              </label>
                 </li>
             </ul>
         </nav>
     </div>
+</div>
+ 
 
 
 
