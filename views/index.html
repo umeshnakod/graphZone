@@ -10,17 +10,27 @@
 	 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	 <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
 	 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	 <script src="bower_components/angular-ui-router/release/stateEvents.js"></script>
 	 <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
-	 <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"> -->
-
-	 <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
-
+	 <script src="bower_components/ngstorage/ngStorage.js"></script>
+	 <script src="node_modules/d3/d3.min.js"></script>
+	 <script src="node_modules/n3-charts/build/LineChart.js"></script>
+	 <link rel="stylesheet" type="text/css" href="assets/style.css">
+	 <link rel="stylesheet" type="text/css" href="node_modules/n3-charts/build/LineChart.css">
+	 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
+	   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	 <script src="bower_components/uvCharts/dist/uvCharts.js"></script>
 	 <script src="module.js"></script>
 	 <script src="route.js"></script>
+	 <script src="./login/controller.js"></script>
+	 <script src="./sidebar/controller.js"></script>
+	 <script src="./menu/controller.js"></script>
+	 <script src="./connection/controller.js"></script>
 
 </head>
-<body ng-controller ='ctrl'>
+<body>
   <ui-view name="header"></ui-view>
+   <ui-view name="sidebar"></ui-view>
   <!-- <ui-view name="content"></ui-view> -->
   <ui-view></ui-view>
 
@@ -37,12 +47,3 @@
 
 </html>
 
-<script>
-
-$(document).on("click", "#menu-toggle", function(e) {
-  // alert('aaaaaaaaa')
- e.preventDefault();
-$("#wrapper").toggleClass("active");
-});
-    
-</script>
