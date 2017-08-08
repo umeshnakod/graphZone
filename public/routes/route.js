@@ -14,7 +14,7 @@
     // calling function
     router.get('/getJSON', logController.getJSON);
     router.post('/getDataFromSql',logController.getDataFromSql);
-
+   router.post('/getTableFileds',logController.getFiledFromDatabase);
 
 
     module.exports = router;

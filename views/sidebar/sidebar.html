@@ -9,7 +9,7 @@
             <ul class="sidebar-nav nav">
                 <li class="sidebar-brand" ng-repeat="values in sidebarValues | filter:test">
               <label ng-repeat="(key,value) in values">
-                <input type="checkbox" id="" value="{{value}}" ng-model="IsChecked" ng-change="checkedItems(IsChecked,value)">
+                <input type="checkbox" id="" value="{{value}}" ng-model="IsChecked" ng-change="getSelectedTableFields(value)">
                 <span>{{value}}</span>
               
               </label>

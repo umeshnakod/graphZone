@@ -96,5 +96,69 @@ module.exports = {
 		});	
 			
 		    
+	},
+
+	getFiledFromDatabase:function (req,res) {
+		
+		var con = sql.createConnection({
+			host: 'localhost',
+		    user     : 'mylocal',
+		    password : '123',
+		    database : 'sakila'
+		});
+			var table = req.body;
+		console.log(table)
+		   var newArr = [];
+			
+			var keyMap = {};
+			var keyMapRecords = [];
+		   	var subQuery = 'select * from '+ table.table;
+		    	con.query(subQuery,function (err,resp) {
+		    		if(err) throw err;
+		    		else{
+		    			var keysArray = [];
+		    			resp.forEach(function(rec){
+		    				Object.keys(rec).forEach(function(key){
+		    					keysArray.push(key);
+		    				})
+		    			})
+		    			if(!keyMap[(table.table)]) keyMap[(table.table)] = [];
+		    			keysArray.forEach(function(akey){
+		    				keyMap[(table.table)].push(akey);
+		    			})
+		    			
+		    			// newArr.push(resp);
+		    			
+		    						    var finalArray = [];
+		    Object.keys(keyMap).forEach(function(itemkey){
+		    	finalArray.push({
+		    		tableName : itemkey,
+		    		tableKeys : keyMap[itemkey]
+		    	})
+		    })
+
+				Array.prototype.unique= function ()
+				{
+				  return this.reduce(function(previous, current, index, array)
+				   {
+				     previous[current.toString()+typeof(current)]=current;
+				     return array.length-1 == index ? Object.keys(previous).reduce(function(prev,cur)
+				       {
+				          prev.push(previous[cur]);
+				          return prev;
+				       },[]) : previous;
+				   }, {});
+				};
+				
+
+				finalArray[0]['tableKeys'] = finalArray[0]['tableKeys'].unique();
+		    	res.send(finalArray)
+	    			
+		    		}
+		    		
+		    	})
+		 
+
+	
 	}
 }
