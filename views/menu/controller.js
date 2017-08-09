@@ -1,76 +1,6 @@
-app.directive('fileModel', ['$parse', function ($parse) {
-    return {
-       restrict: 'A',
-       link: function(scope, element, attrs) {
-          var model = $parse(attrs.fileModel);
-          var modelSetter = model.assign;
-
-          element.bind('change', function(){
-             scope.$apply(function(){
-                modelSetter(scope, element[0].files[0]);
-             });
-          });
-       }
-    };
- }]);
-
- app.service('fileUpload', ['$http', function ($http) {
-    this.uploadFileToUrl = function(file, uploadUrl){
-       var fd = new FormData();
-       fd.append('file', file);
-        $http({
-      method:'POST',
-      url:uploadUrl,
-      data:fd,
-      header: {
-                    'Content-Type': 'application/json'
-              }
-
-    }).then(function (result) {
-      console.log("file uploaded succesfully")
-    })
-
-       // .error(function(){
-       //  console.log("lochaa in uploading file")
-       // });
-    }
- }]);
-app.controller('menuController',['Upload','$window',function ($scope,$state,$sessionStorage,$http,$rootScope,fileUpload,Upload,$window) {
+app.controller('menuController',function ($scope,$state,$sessionStorage,$http,$rootScope) {
  
-  var vm = this;
-        vm.submit = function(){ //function to call on form submit
-            if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
-                vm.upload(vm.file); //call upload function
-            }
-        }
-        vm.upload = function (file) {
-            Upload.upload({
-                method: 'POST',
-                url: '/fileUpload', //webAPI exposed to upload the file
-                data:{file:file} //pass file as data, should be user ng-model
-            }).then(function (resp) { //upload function returns a promise
-                if(resp.data.error_code === 0){ //validate success
-                    $window.alert('Success ' + resp.config.data.file.name + 'uploaded. Response: ');
-                } else {
-                    $window.alert('an error occured');
-                }
-            }, function (resp) { //catch error
-                console.log('Error status: ' + resp.status);
-                $window.alert('Error status: ' + resp.status);
-            }, function (evt) { 
-                console.log(evt);
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-            });
-        };
-
-
-
-
-
-
-	var graphdef = {
+var graphdef = {
   	categories : ['uvCharts'],
   	dataset : {
   		'uvCharts' : [
@@ -244,7 +174,7 @@ app.controller('menuController',['Upload','$window',function ($scope,$state,$ses
       var data = {
         "host": "localhost",
         "user": "root",
-          "password": "root",
+          "password": "root@123",
           "database": "sakila",
           "dbType":"sql"
       }
@@ -270,4 +200,4 @@ app.controller('menuController',['Upload','$window',function ($scope,$state,$ses
     init();
 
 
-}])
+})

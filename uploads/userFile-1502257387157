@@ -1,0 +1,12 @@
+City,Current_Year_Salary,Name,Department,Pre_Year_Salary
+Pune,20000,"IT Pune,One",IT,18000
+Mumbai,25000,IT Mumbai One,IT,22000
+Pune,20000,TS Pune One,Tech Support,16000
+Banglore,28000,IT Banglore One,IT,25000
+Banglore,26000,TS Banglore One,Tech Support,23000
+Mumbai,22000,TS Mumbai One,Tech Support,20000
+Pune,20000,Mg Pune One,Management,17000
+Mumbai,15000,Mg Mumbai One,Management,10000
+Banglore,15000,IT Banglore Two,IT,11000
+Pune,18000,IT Pune Two,IT,15000
+Delhi,21000,IT Delhi One,IT,19000

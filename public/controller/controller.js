@@ -5,21 +5,7 @@ var db = mongojs('SAMS-Phase3',['employee']);
 var sql = require('mysql');
 var MongoClient = require('mongodb').MongoClient;
 var fs = require('fs');
-var multer  = require('multer');
-var Converter = require("csvtojson").Converter;
-
-var storage = multer.diskStorage({ //multers disk storage settings
-        destination: function (req, file, cb) {
-            cb(null, './uploads/')
-        },
-        filename: function (req, file, cb) {
-            var datetimestamp = Date.now();
-            cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
-        }
-    });
-    var upload = multer({ //multer settings
-                    storage: storage
-                }).single('file');
+var multer  =   require('multer');
 
 module.exports = {
 	getJSON:function (req,res) {
@@ -62,7 +48,7 @@ module.exports = {
 		var con = sql.createConnection({
 			host: 'localhost',
 		    user     : 'root',
-		    password : 'root',
+		    password : 'root@123',
 		    database : 'sakila'
 		});
 		// var con = sql.createConnection({
@@ -146,7 +132,7 @@ module.exports = {
 		var con = sql.createConnection({
 			host: 'localhost',
 		    user     : 'root',
-		    password : 'root',
+		    password : 'root@123',
 		    database : 'sakila'
 		});
 
@@ -202,13 +188,21 @@ module.exports = {
 	},
 
 	fileUpload:function(req,res) {
-		upload(req,res,function(err,result){
-            if(err){
-                 res.json({error_code:1,err_desc:err});
-                 return;
-            }
-            console.log("the result = ",result)
-             res.json({error_code:0,err_desc:null});
-        })
+		var storage =   multer.diskStorage({
+		  destination: function (req, file, callback) {
+		    callback(null, './uploads');
+		  },
+		  filename: function (req, file, callback) {
+		    callback(null, file.fieldname + '-' + Date.now());
+		  }
+		});
+		var upload = multer({ storage : storage}).single('userFile');
+		upload(req,res,function(err) {
+			console.log('req.file',req.file)
+	        if(err) {
+	            return res.end("Error uploading file.");
+	        }
+	        res.end("Uploaded file: "+req.file.originalname);
+	    });
 	}
 }

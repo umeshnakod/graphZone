@@ -1,21 +1,12 @@
 <div id="wrapper1">
     
-<script src="https://github.com/danialfarid/ng-file-upload/blob/master/demo/src/main/webapp/js/ng-file-upload.min.js"></script>
     <!-- Page content -->
     <div id="page-content-wrapper">
         <div class="page-content">
 
-<!-- file upload -->
-<!-- <input type = "file" file-model = "myFile" accept=".csv" /> -->
-<form>
-<input 
-               type="file" 
-               ngf-select 
-               ng-model="up.file" 
-               name="file" 
-               />
-<!-- <button ng-click = "uploadFile()">Upload File</button> -->
- <button type="submit" ng-click="up.submit()">submit</button>
+<form id =  "uploadForm" enctype = "multipart/form-data" action = "/fileUpload" method = "POST" accept="application/vnd.ms-excel">
+<input type="file" name="userFile" />
+<input type="submit" value="Upload CSV" name="submit">
 </form>
             <div class="container-fluid">
                 <div class="row">

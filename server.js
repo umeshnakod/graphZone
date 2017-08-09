@@ -9,8 +9,7 @@ var path = require('path');
 var fs = require('fs');
 var sql = require('mysql');
 var bodyParser = require('body-parser');
-var multer  = require('multer');
-var Converter = require("csvtojson").Converter;
+var multer  =   require('multer');
 var app = express();
 
 // CROSS ORIGIN
@@ -35,14 +34,11 @@ var getJSON = require('./public/routes/route.js');
 
 app.use('/', getJSON);
 
-// app.post('/fileUpload',fileUpload);
-
 app.get('/',function (req,res) { 
 
 
 	res.sendFile(path.join(__dirname+'/views/index.html'))
 })
-
 
 app.listen(3000,function () {
 	console.log('server running');
