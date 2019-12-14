@@ -11,7 +11,7 @@
     "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
     "mongojs": "^2.4.0",
-    "mongoose": "^4.11.5",
+    "mongoose": "^5.8.1",
     "mongoskin": "^2.1.0",
     "mysql": "^2.14.1",
     "n3-charts": "^2.0.28",
