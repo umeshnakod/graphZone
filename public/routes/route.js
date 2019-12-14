@@ -9,8 +9,6 @@
 
     var logController = require('../controller/controller');
 
-
-
     // calling function
     router.get('/getJSON', logController.getJSON);
     router.post('/getDataFromSql',logController.getDataFromSql);
